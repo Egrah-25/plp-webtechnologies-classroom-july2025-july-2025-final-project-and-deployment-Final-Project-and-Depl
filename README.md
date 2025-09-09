@@ -1,90 +1,72 @@
-# 📦 Final Assignment: Build, Organize, and Deploy a Multipage Website
+Photography Portfolio Website📸
 
-You're now ready to bring everything together—HTML, CSS, JavaScript, planning, structure, and deployment. This final project challenges you to **conceptualize, build, and deploy a multi-page website** that is responsive, interactive, and ready for the real world.
+https://images.pexels.com/photos/1054391/pexels-photo-1054391.jpeg
 
-This assignment will guide you from planning your site all the way to deploying it online. Let’s make your project *production-worthy*! 🚀
+Project Overview ✨
 
----
+AfroFrame Photography is a responsive multi-page portfolio website showcasing African-themed photography. The website features a clean, modern design with a focus on showcasing beautiful imagery from across Africa.
 
-## 🌐🎯 Part 1: Planning and Organizing a Multipage Website
+Live Demo: https://yourusername.github.io
 
-Before you write any code, take time to plan:
+Features🌟
 
-* Define your website's purpose (portfolio, product showcase, blog, etc.)
-* Outline 3–5 pages (e.g., Home, About, Services, Contact, Gallery)
-* Sketch or describe the layout of each page
-* Map out internal navigation (how pages link to one another)
+· Responsive Design: Fully responsive layout that works on mobile, tablet, and desktop devices
+· Multi-page Structure: Five distinct pages (Home, Portfolio, About, Services, Contact)
+· Image Gallery: Interactive gallery with modal viewing capability
+· Contact Form: Functional contact form with validation
+· African-Themed: Curated content focused on African culture, people, and landscapes
+· Modern UI: Clean design with smooth animations and transitions
 
-**Goal:** Show intentional structure and user journey across the site.
+Pages ✨ 📑
 
----
+1. Home: Hero section, featured work, and client testimonials
+2. Portfolio: Extensive gallery of African photography
+3. About: Photographer biography and philosophy
+4. Services: Photography services offered with pricing
+5. Contact: Contact form and business information
 
-## 🌍💻 Part 2: Build the Website Using HTML5, CSS, and JavaScript
+Technologies Used 👩‍💻
 
-Using your plan, begin building:
+· HTML5: Semantic markup for better accessibility and SEO
+· CSS3: Modern styling with Flexbox, Grid, and CSS variables
+· JavaScript: Interactive elements and form validation
+· Font Awesome: Icon library for UI elements
+· Google Fonts: Typography (implied - can be added)
 
-* Use HTML5 for semantic structure
-* Apply CSS for responsive layout, styling, and animations
-* Use JavaScript to add interactivity (menus, forms, toggles, dynamic content)
+File Structure ✨
 
-Each page should:
+```
+photography-portfolio/
+├── index.html          # Home page
+├── portfolio.html      # Portfolio gallery page
+├── about.html          # About me page
+├── services.html       # Services offered page
+├── contact.html        # Contact form page
+├── css/
+│   ├── style.css       # Main stylesheet
+│   └── responsive.css  # Media queries for responsiveness
+├── js/
+│   ├── main.js         # Shared functionality
+│   ├── gallery.js      # Portfolio-specific functionality
+│   └── form-validation.js # Contact form validation
+├── images/             # All website images
+│   ├── hero.jpg        # Hero section background
+│   ├── gallery-1.jpg   # Gallery images
+│   ├── gallery-2.jpg
+│   └── ...
+└── README.md           # This file
+`License💥
 
-* Be mobile-responsive
-* Share a consistent layout/header/footer
-* Include at least one interactive element (e.g., form validation, toggle menu, animation on scroll)
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-**Goal:** Integrate everything you’ve learned in a cohesive, functioning project.
+Acknowledgments✨
 
----
+· Photography by Egrah Savai 
+· Icons by Font Awesome
+· placeholder images from Pexels
 
-## 🛠️🚀 Part 3: Best Practices for Code Organization
+Support 🌟🌟
 
-Before deployment, refactor your project to follow production-friendly practices:
+If you have any questions or issues, please contact:
 
-* Organize files in folders (`/css`, `/js`, `/images`, etc.)
-* Write clean, modular, and commented code
-* Use meaningful file names and relative paths
-* Validate your HTML/CSS and test on different screen sizes
-
-**Goal:** Prepare your codebase to be readable, maintainable, and scalable.
-
----
-
-## 🌐🚀 Part 4: Introduction to Hosting and Deployment
-
-Once your project is complete, choose a method to **host your site online**.
-
-You can use:
-
-* **GitHub Pages** (great for portfolios and static sites)
-* **Netlify** (powerful CI/CD features and easy form support)
-* **Vercel** (lightning-fast deployment for frontend projects)
-
-Deploy your project and confirm that:
-
-* All links and scripts work
-* It loads properly on mobile and desktop
-* It has a clear, shareable URL
-
-**Goal:** Publish your work online and make it accessible to the world.
-
----
-
-## Deliverables
-
-1. A GitHub repository containing:
-
-   * Your complete project code, properly organized
-   * A `README.md` file explaining your project purpose, structure, and live URL
-2. A live deployed website (hosted via GitHub Pages, Netlify, or Vercel)
-
----
-
-## Outcome
-
-* Clarity and thoroughness of planning documentation
-* Proper use of HTML5, CSS, and JavaScript across multiple pages
-* Responsive and accessible design
-* Clean, well-organized, and commented code
-* Successful live deployment with a working link
-* Evidence of following best practices
+· Email: savaiegrah@gmail.com
