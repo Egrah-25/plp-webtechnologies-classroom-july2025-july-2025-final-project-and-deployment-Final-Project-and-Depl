@@ -6,7 +6,7 @@ Project Overview ✨
 
 AfroFrame Photography is a responsive multi-page portfolio website showcasing African-themed photography. The website features a clean, modern design with a focus on showcasing beautiful imagery from across Africa.
 
-Live Demo: https://yourusername.github.io
+Live Demo: https://egrah-25.github.io/plp-webtechnologies-classroom-july2025-july-2025-final-project-and-deployment-Final-Project-and-Depl/
 
 Features🌟
 
