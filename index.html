@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfroFrame Photography | Capturing Africa's Beauty</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for consistent styling */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --transition: all 0.3s ease;
+            --gold: #f1c40f;
+            --earth: #8B4513;
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Page Content */
+        .page-content {
+            padding-top: 100px;
+            min-height: 80vh;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/1054391/pexels-photo-1054391.jpeg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        /* Featured Work Section */
+        .featured-work {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .testimonial-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            position: relative;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin-top: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                height: calc(100vh - 80px);
+                padding: 40px 0;
+                transition: var(--transition);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Page Specific Styles */
+        #portfolio-page .gallery {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        #portfolio-page .gallery-item {
+            height: 250px;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: block;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+        
+        .modal-caption {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Afro<span>Frame</span></a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page Content -->
+        <div id="home-page" class="page-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container hero-content">
+                    <h1>Capturing the Spirit of Africa</h1>
+                    <p>Professional photography showcasing the beauty, culture, and people of Africa</p>
+                    <a href="contact.html" class="btn">Book a Session</a>
+                </div>
+            </section>
+
+            <!-- Featured Work Section -->
+            <section class="featured-work">
+                <div class="container">
+                    <h2 class="section-title">Featured Work</h2>
+                    <div class="gallery">
+                        <div class="gallery-item">
+                            <img src="https://images.pexels.com/photos/1054391/pexels-photo-1054391.jpeg" alt="Portrait of Maasai warrior">
+                            <div class="gallery-item-overlay">
+                                <h3>Maasai Warrior</h3>
+                                <p>Portrait Series</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.pexels.com/photos/247287/pexels-photo-247287.jpeg" alt="African landscape">
+                            <div class="gallery-item-overlay">
+                                <h3>Savannah Sunset</h3>
+                                <p>Landscape Collection</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.pexels.com/photos/2886214/pexels-photo-2886214.jpeg" alt="African market">
+                            <div class="gallery-item-overlay">
+                                <h3>Market Day</h3>
+                                <p>Cultural Series</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="testimonials">
+                <div class="container">
+                    <h2 class="section-title">Client Testimonials</h2>
+                    <div class="testimonial-container">
+                        <div class="testimonial">
+                            <p class="testimonial-text">"The photos from our wedding in Nigeria exceeded all expectations. Captured every special moment perfectly!"</p>
+                            <p class="testimonial-author">- Chiamaka & Adewale</p>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">"The corporate headshots were professional and made our team look great. Quick turnaround too!"</p>
+                            <p class="testimonial-author">- Tendai, Marketing Director</p>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">"Our family portrait session was so much fun, and the results were stunning. Will definitely book again."</p>
+                            <p class="testimonial-author">- The Mbeki Family</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Portfolio Page Content (Hidden by default) -->
+        <div id="portfolio-page" class="page-content" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">Portfolio</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/736532/pexels-photo-736532.jpeg" alt="African woman portrait">
+                        <div class="gallery-item-overlay">
+                            <h3>Beauty in Culture</h3>
+                            <p>Portrait Series</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/2886214/pexels-photo-2886214.jpeg" alt="African market scene">
+                        <div class="gallery-item-overlay">
+                            <h3>Market Colors</h3>
+                            <p>Cultural Series</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/247287/pexels-photo-247287.jpeg" alt="African landscape">
+                        <div class="gallery-item-overlay">
+                            <h3>Endless Savannah</h3>
+                            <p>Landscape Collection</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1054391/pexels-photo-1054391.jpeg" alt="Maasai tribesman">
+                        <div class="gallery-item-overlay">
+                            <h3>Traditional Pride</h3>
+                            <p>Portrait Series</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1269968/pexels-photo-1269968.jpeg" alt="African wildlife">
+                        <div class="gallery-item-overlay">
+                            <h3>Wild Majesty</h3>
+                            <p>Wildlife Collection</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1054356/pexels-photo-1054356.jpeg" alt="African child smiling">
+                        <div class="gallery-item-overlay">
+                            <h3>Innocence</h3>
+                            <p>Portrait Series</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page Content (Hidden by default) -->
+        <div id="about-page" class="page-content" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Capturing the Essence of Africa</h3>
+                        <p>My name is Egrah Savai, and I'm a professional photographer specializing in documenting the diverse cultures, landscapes, and people of Africa.</p>
+                        <p>With over 10 years of experience, I've traveled across 15 African countries to capture the true spirit and beauty of this magnificent continent.</p>
+                        <p>My work has been featured in National Geographic, BBC Travel, and several international exhibitions. I believe in ethical photography that respects and celebrates the subjects while telling authentic stories.</p>
+                        <p>When I'm not behind the camera, I teach photography workshops across Africa and serve as a board member for the African Photographers Association.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.pexels.com/photos/762041/pexels-photo-762041.jpeg" alt="Photographer at work">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Page Content (Hidden by default) -->
+        <div id="services-page" class="page-content" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Portrait Photography</h3>
+                        <p>Professional individual, family, and group portraits that capture personality and emotion in authentic settings.</p>
+                        <p class="price">Starting at Ksh.250</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <h3>Event Photography</h3>
+                        <p>Comprehensive coverage of weddings, ceremonies, and cultural events with a documentary approach.</p>
+                        <p class="price">Starting at Ksh.500</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>Landscape Photography</h3>
+                        <p>Stunning images of Africa's diverse landscapes, from savannahs to mountains and coastlines.</p>
+                        <p class="price">Starting at Ksh.300</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Commercial Photography</h3>
+                        <p>Professional images for businesses, brands, and organizations looking to showcase their work in Africa.</p>
+                        <p class="price">Starting at Ksh.400</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h3>Wildlife Photography</h3>
+                        <p>Capture Africa's incredible biodiversity with ethical wildlife photography sessions in natural habitats.</p>
+                        <p class="price">Starting at Ksh.600</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>Photography Workshops</h3>
+                        <p>Learn photography techniques and ethical practices through hands-on workshops across Africa.</p>
+                        <p class="price">Starting at Ksh.200</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page Content (Hidden by default) -->
+        <div id="contact-page" class="page-content" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <p>I'd love to hear from you! Whether you're interested in a photography session, want to purchase prints, or have questions about my work, feel free to reach out.</p>
+                        <div class="contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i> 123 Nairobi Street, Kenya</p>
+                            <p><i class="fas fa-phone"></i> +254 742651608</p>
+                            <p><i class="fas fa-envelope"></i> savaiegrah@gmail.com</p>
+                            <p><i class="fas fa-clock"></i> Monday-Friday: 9AM - 5PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>AfroFrame Photography specializes in capturing the beauty, culture, and people of Africa with creative vision and technical expertise.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" data-page="home-page">Home</a></li>
+                        <li><a href="#" data-page="portfolio-page">Portfolio</a></li>
+                        <li><a href="#" data-page="about-page">About</a></li>
+                        <li><a href="#" data-page="services-page">Services</a></li>
+                        <li><a href="#" data-page="contact-page">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p>Email: info@afroframe.com</p>
+                    <p>Phone: +254 712 345 678</p>
+                    <p>Address: 123 Nairobi Street, Kenya</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AfroFrame Photography. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div class="modal-caption" id="modal-caption"></div>
+    </div>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Modal functionality for image viewing
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-image');
+        const captionText = document.getElementById('modal-caption');
+        const closeModal = document.getElementById('modal-close');
+        
+        // Add click event to all gallery images
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+                captionText.innerHTML = img.alt;
+            });
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside the image
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Form validation for contact page
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name === "" || email === "" || message === "") {
+                alert("Please fill in all fields");
+                return false;
+            }
+            
+            if (!email.includes('@')) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateForm()) {
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            }
+        });
+        
+        // Simple page navigation
+        document.querySelectorAll('a[data-page]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+        
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Show the selected page
+            document.getElementById(pageId).style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Initialize page when loaded
+        window.onload = function() {
+            // Show home page by default
+            showPage('home-page');
+        };
+    </script>
+</body>
+</html>
