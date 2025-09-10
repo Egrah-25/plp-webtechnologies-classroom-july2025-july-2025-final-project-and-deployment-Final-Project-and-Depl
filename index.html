@@ -500,6 +500,22 @@
             padding: 10px;
             font-size: 1.2rem;
         }
+
+        /* Navigation active state */
+        .nav-active {
+            color: var(--secondary-color) !important;
+            position: relative;
+        }
+
+        .nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
     </style>
 </head>
 <body>
@@ -509,11 +525,11 @@
             <a href="index.html" class="logo">Afro<span>Frame</span></a>
             <div class="hamburger" id="hamburger">☰</div>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html" class="nav-link" data-page="home-page">Home</a></li>
+                <li><a href="#portfolio" class="nav-link" data-page="portfolio-page">Portfolio</a></li>
+                <li><a href="#about" class="nav-link" data-page="about-page">About</a></li>
+                <li><a href="#services" class="nav-link" data-page="services-page">Services</a></li>
+                <li><a href="#contact" class="nav-link" data-page="contact-page">Contact</a></li>
             </ul>
         </div>
     </header>
@@ -527,7 +543,7 @@
                 <div class="container hero-content">
                     <h1>Capturing the Spirit of Africa</h1>
                     <p>Professional photography showcasing the beauty, culture, and people of Africa</p>
-                    <a href="contact.html" class="btn">Book a Session</a>
+                    <a href="#contact" class="btn">Book a Session</a>
                 </div>
             </section>
 
@@ -572,7 +588,8 @@
                         </div>
                         <div class="testimonial">
                             <p class="testimonial-text">"The corporate headshots were professional and made our team look great. Quick turnaround too!"</p>
-                            <p class="testimonial-author">- Tendai, Marketing Director</p>
+                            <p class="testimonial-author">- T
+                                Kamau, Marketing Director</p>
                         </div>
                         <div class="testimonial">
                             <p class="testimonial-text">"Our family portrait session was so much fun, and the results were stunning. Will definitely book again."</p>
@@ -583,7 +600,7 @@
             </section>
         </div>
 
-        <!-- Portfolio Page Content (Hidden by default) -->
+        <!-- Portfolio Page Content -->
         <div id="portfolio-page" class="page-content" style="display: none;">
             <div class="container">
                 <h2 class="section-title">Portfolio</h2>
@@ -634,7 +651,7 @@
             </div>
         </div>
 
-        <!-- About Page Content (Hidden by default) -->
+        <!-- About Page Content -->
         <div id="about-page" class="page-content" style="display: none;">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
@@ -642,7 +659,7 @@
                     <div class="about-text">
                         <h3>Capturing the Essence of Africa</h3>
                         <p>My name is Egrah Savai, and I'm a professional photographer specializing in documenting the diverse cultures, landscapes, and people of Africa.</p>
-                        <p>With over 10 years of experience, I've traveled across 15 African countries to capture the true spirit and beauty of this magnificent continent.</p>
+                        <p>With over 5 years of experience, I've traveled across 15 African countries to capture the true spirit and beauty of this magnificent continent.</p>
                         <p>My work has been featured in National Geographic, BBC Travel, and several international exhibitions. I believe in ethical photography that respects and celebrates the subjects while telling authentic stories.</p>
                         <p>When I'm not behind the camera, I teach photography workshops across Africa and serve as a board member for the African Photographers Association.</p>
                     </div>
@@ -653,7 +670,7 @@
             </div>
         </div>
 
-        <!-- Services Page Content (Hidden by default) -->
+        <!-- Services Page Content -->
         <div id="services-page" class="page-content" style="display: none;">
             <div class="container">
                 <h2 class="section-title">Services</h2>
@@ -710,7 +727,7 @@
             </div>
         </div>
 
-        <!-- Contact Page Content (Hidden by default) -->
+        <!-- Contact Page Content -->
         <div id="contact-page" class="page-content" style="display: none;">
             <div class="container">
                 <h2 class="section-title">Contact Me</h2>
@@ -720,7 +737,7 @@
                         <p>I'd love to hear from you! Whether you're interested in a photography session, want to purchase prints, or have questions about my work, feel free to reach out.</p>
                         <div class="contact-details">
                             <p><i class="fas fa-map-marker-alt"></i> 123 Nairobi Street, Kenya</p>
-                            <p><i class="fas fa-phone"></i> +254 742651608</p>
+                            <p><i class="fas fa-phone"></i> +254 742 651 608</p>
                             <p><i class="fas fa-envelope"></i> savaiegrah@gmail.com</p>
                             <p><i class="fas fa-clock"></i> Monday-Friday: 9AM - 5PM</p>
                         </div>
@@ -762,18 +779,18 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#" data-page="home-page">Home</a></li>
-                        <li><a href="#" data-page="portfolio-page">Portfolio</a></li>
-                        <li><a href="#" data-page="about-page">About</a></li>
-                        <li><a href="#" data-page="services-page">Services</a></li>
-                        <li><a href="#" data-page="contact-page">Contact</a></li>
+                        <li><a href="#home" class="nav-link" data-page="home-page">Home</a></li>
+                        <li><a href="#portfolio" class="nav-link" data-page="portfolio-page">Portfolio</a></li>
+                        <li><a href="#about" class="nav-link" data-page="about-page">About</a></li>
+                        <li><a href="#services" class="nav-link" data-page="services-page">Services</a></li>
+                        <li><a href="#contact" class="nav-link" data-page="contact-page">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Information</h3>
                     <p>Email: savaiegrah@gmail.com</p>
-                    <p>Phone: +254 742651608</p>
-                    <p>Address: 123 Limuru Street, Kenya</p>
+                    <p>Phone: +254 742 651 608</p>
+                    <p>Address: 123 Nairobi Street, Kenya</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -783,7 +800,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 AfroFrame Photography. All rights reserved.</p>
+                <p>&copy; 2023 AfroFrame Photography. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -866,15 +883,7 @@
             }
         });
         
-        // Simple page navigation
-        document.querySelectorAll('a[data-page]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('data-page');
-                showPage(pageId);
-            });
-        });
-        
+        // Page navigation functionality
         function showPage(pageId) {
             // Hide all pages
             document.querySelectorAll('.page-content').forEach(page => {
@@ -884,15 +893,50 @@
             // Show the selected page
             document.getElementById(pageId).style.display = 'block';
             
+            // Update active navigation link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('nav-active');
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('nav-active');
+                }
+            });
+            
             // Scroll to top
             window.scrollTo(0, 0);
+            
+            // Update URL hash
+            window.location.hash = pageId.replace('-page', '');
         }
+        
+        // Handle navigation clicks
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.replace('#', '');
+            if (hash) {
+                showPage(`${hash}-page`);
+            } else {
+                showPage('home-page');
+            }
+        });
         
         // Initialize page when loaded
         window.onload = function() {
-            // Show home page by default
-            showPage('home-page');
+            // Check if there's a hash in the URL
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById(`${hash}-page`)) {
+                showPage(`${hash}-page`);
+            } else {
+                showPage('home-page');
+            }
         };
     </script>
 </body>
-</html>
+</html> 
